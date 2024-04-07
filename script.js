@@ -10,10 +10,11 @@ window.onload = blague();
 function blague() {
   fetch("https://api.blablagues.net/?rub=blagues").then((res) =>
     res.json().then((data) => {
-      para.innerText = data.data.content.text_head;
-      data.data.content.text_hidden === ""
-        ? (para2.innerText = data.data.content.text)
-        : (para2.innerText = data.data.content.text_hidden);
+      const blague = data.data.content;
+      para.innerText = blague.text_head;
+      blague.text_hidden === ""
+        ? (para2.innerText = blague.text)
+        : (para2.innerText = blague.text_hidden);
     })
   );
   setTimeout(() => {
